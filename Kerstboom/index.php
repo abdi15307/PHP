@@ -2,7 +2,7 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: S.A. Mohamed
+ * User: S.A.Mohamed
  * Date: 8-2-2017
  * Time: 13:01
  */
@@ -12,4 +12,10 @@ for ($i = 1; $i <= $regel; $i++){
         echo '*';
     }
     echo "<br>";
+}
+// opdracht 2 van While naar  forloop
+echo "<br>" . "<br>" . "<br>";
+
+for ($i=35; $i >= 25 ; $i--) {
+    echo "hoppelepee";
 }
