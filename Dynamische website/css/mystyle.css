@@ -1,0 +1,22 @@
+body{
+    background-color: #cccccc;
+    font-family: Arial;
+}
+nav ul{
+    list-style-type: none;
+    padding: 0px;
+
+}
+nav li {
+    display: inline-block;
+    padding: 0px;
+    background-color: black;
+    color: white;
+}
+nav li a{
+    color: white;
+    text-decoration: none;
+}
+nav li a:hover{
+    color: #cccccc;
+}
