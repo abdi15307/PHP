@@ -1,0 +1,20 @@
+body {
+
+}
+.handlesingelresult{
+
+    background: green;
+    color: white;
+}
+
+table, tr, td {
+    border: 1px solid black;
+
+
+}
+.true{
+background-color: green;
+}
+.false{
+    background-color:red;
+}

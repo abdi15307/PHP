@@ -1,0 +1,26 @@
+
+body{
+
+    background: url("img/ac.jpg");
+    background-repeat: no-repeat;
+}
+
+
+.row{
+
+    margin-top: 151px;
+
+}
+footer{
+    background-color:rgb(128,128,128);
+    color:white;
+    clear:both;
+    margin-top: 121px;
+
+}
+
+
+footer h3{
+    color:white;
+
+}
