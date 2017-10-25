@@ -27,7 +27,7 @@ if (isset($_POST["knop"])
     $message = "Inloggen";
 }
 ?>
-2
+
 <!DOCTYPE html>
 <html>
 <body>

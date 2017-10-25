@@ -6,7 +6,7 @@
  * Time: 11:37
  */
 
-$celsius = 18;
+$celsius = 18.9;
 
 $fahrenheit = ($celsius * 1.8) + 32;
 

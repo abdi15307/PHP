@@ -1,0 +1,19 @@
+application: mrwheely-169212
+version: 1
+runtime: php55
+api_version: 1
+threadsafe: yes
+
+handlers:
+- url: /(.+\.(html|css|js|gif|png|jpg))$
+  static_files: \1
+  upload: .+\.(html|css|js|gif|png|jpg)$
+  application_readable: true
+
+# PHP Scriptbestanden.
+- url: /(.+\.php)$
+  script: \1
+
+- url: /.*
+  script: index.php
+  

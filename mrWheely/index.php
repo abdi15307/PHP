@@ -17,7 +17,7 @@ if (!empty($_POST["minprijs"])) {
 if (!empty($_POST["maxprijs"])) {
     $maxprijs = $_POST["maxprijs"];
 } else {
-    $maxprijs = 99999999999999;
+    $maxprijs = 99999999999;
 }
 $ao = new AutoOverzicht();
 $ao->voegAutoToe(new Auto("<h5>Merk: Audi<br>Prijs : € 102500.00</h5>", "img/audi1.png", 102500.00, "Audi"));
@@ -75,23 +75,24 @@ $ao->voegAutoToe(new Auto("<h5>Merk: Volkswagen<br>Prijs : € 21670.00</h5>", "
                     <label for="sel1">Merk:</label>
                     <select class="form-control" id="merk" name="merk">
                         <?php foreach ($options as $option) { ?>
-                            <option <?php if ($option === $_POST["merk"] || $option === "--Alle merken--") {
+                            <option <?php if (isset($_POST["merk"]) && $option === $_POST["merk"]) {
                                 echo 'selected="selected"';
                             } ?> value="<?php echo $option; ?>"><?php echo $option; ?></option>
                         <?php } ?>
                     </select>
                 </div>
+                </div>
                 <div class="form-group">
                     <label for="type">Minimale prijs:</label>
                     <input type="text" class="form-control" id="minprijs" name="minprijs"
-                           value="<?php if ($_POST["minprijs"] === $minprijs) {
+                           value="<?php if (isset($_POST["minprijs"]) === $minprijs) {
                                echo $minprijs;
                            } ?>">
                 </div>
                 <div class="form-group">
                     <label for="type">Maximale prijs:</label>
                     <input type="text" class="form-control" id="maxprijs" name="maxprijs"
-                           value="<?php if ($_POST["maxprijs"] === $maxprijs) {
+                           value="<?php if (isset ($_POST["maxprijs"]) === $maxprijs) {
                                echo $maxprijs;
                            } ?>">
                 </div>
@@ -99,11 +100,20 @@ $ao->voegAutoToe(new Auto("<h5>Merk: Volkswagen<br>Prijs : € 21670.00</h5>", "
             </form>
             <div>
                 <?php foreach ($ao->getAutoSoort() as $auto) {
-                    if ((!$_POST["merk"] && !$_POST["minprijs"] && !$_POST["maxprijs"] || ($_POST["merk"] === $auto->getMerk() || $_POST["merk"] === "--Alle merken--") && $minprijs <= $auto->getPrijs() && $maxprijs >= $auto->getPrijs())) { ?>
+                    if (isset ($_POST["maxprijs"])){
+                    if ((!$_POST["merk"] && !$_POST["minprijs"] && !$_POST["maxprijs"]||
+                        ($_POST["merk"] === $auto->getMerk() ||
+                            $_POST["merk"] === "--Alle merken--") && $minprijs <= $auto->getPrijs() && $maxprijs >= $auto->getPrijs())) { ?>
                         <div value="<?php echo $auto->getPrijs(); ?>, <?php echo $auto->getMerk(); ?>"
                              class="wheely-img"
                              style="background-image:url('<?php echo $auto->getLink(); ?>')"><?php echo $auto->getAuto(); ?></div><?php }
-                } ?>
+                        // alles er uit halen wat
+                }else { ?>
+                <div value="<?php echo $auto->getPrijs(); ?>, <?php echo $auto->getMerk(); ?>"
+                             class="wheely-img"
+                             style="background-image:url('<?php echo $auto->getLink(); ?>')"><?php echo $auto->getAuto(); ?></div>
+
+                 <?php  }}?>
             </div>
         </div>
     </div>
