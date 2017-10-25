@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="MySQL - sportvereniging@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="2.6">
+    <schema id="1" name="sportvereniging">
+      <visible>1</visible>
+    </schema>
+    <schema id="2" name="information_schema"/>
+    <schema id="3" name="mysql"/>
+    <schema id="4" name="opleiding"/>
+    <schema id="5" name="performance_schema"/>
+    <schema id="6" name="sakila"/>
+    <schema id="7" name="school"/>
+    <schema id="8" name="sportvereniging2"/>
+    <schema id="9" name="sys"/>
+    <schema id="10" name="world"/>
+    <table id="11" parent="1" name="commissie"/>
+    <table id="12" parent="1" name="lid"/>
+    <table id="13" parent="1" name="lidcommisie"/>
+    <column id="14" parent="11" name="commissienaam">
+      <data-type>varchar(25)|0</data-type>
+    </column>
+    <column id="15" parent="11" name="commissieid">
+      <mandatory>1</mandatory>
+      <data-type>varchar(2)|0</data-type>
+    </column>
+    <key id="16" parent="11" name="PRIMARY">
+      <columns>commissieid</columns>
+      <primary>1</primary>
+    </key>
+    <column id="17" parent="12" name="lidid">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="18" parent="12" name="voorletters">
+      <data-type>varchar(7)|0</data-type>
+    </column>
+    <column id="19" parent="12" name="tussenvoegsel">
+      <data-type>varchar(7)|0</data-type>
+    </column>
+    <column id="20" parent="12" name="achternaam">
+      <data-type>varchar(25)|0</data-type>
+    </column>
+    <column id="21" parent="12" name="telefoon">
+      <data-type>varchar(11)|0</data-type>
+    </column>
+    <key id="22" parent="12" name="PRIMARY">
+      <columns>lidid</columns>
+      <primary>1</primary>
+    </key>
+    <column id="23" parent="13" name="lidid">
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="24" parent="13" name="commisieid">
+      <data-type>varchar(2)|0</data-type>
+    </column>
+    <index id="25" parent="13" name="fk_lidcommisie_commissie1_idx">
+      <columns>commisieid</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <index id="26" parent="13" name="fk_lidcommisie_lid_idx">
+      <columns>lidid</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <foreign-key id="27" parent="13" name="fk_lidcommisie_lid">
+      <columns>lidid</columns>
+      <ref-key>~.lid.PRIMARY</ref-key>
+      <cascade-update-rule>no_action</cascade-update-rule>
+      <cascade-delete-rule>no_action</cascade-delete-rule>
+    </foreign-key>
+    <foreign-key id="28" parent="13" name="fk_lidcommisie_commissie1">
+      <columns>commisieid</columns>
+      <ref-key>~.commissie.PRIMARY</ref-key>
+      <cascade-update-rule>no_action</cascade-update-rule>
+      <cascade-delete-rule>no_action</cascade-delete-rule>
+    </foreign-key>
+  </database-model>
+</dataSource>
